@@ -1,15 +1,5 @@
-syntax on
-set number
-map <C-t><up> :tabr<cr>
-map <C-t><down> :tabl<cr>
-map <C-t><left> :tabp<cr>
-map <C-t><right> :tabn<cr>
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='deus'
-let g:airline_powerline_fonts = 1
 set nocompatible              " be iMproved, required
 filetype off                  " required
-
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -27,8 +17,6 @@ Plugin 'vim-python/python-syntax'
 Plugin 'tpope/vim-fugitive'
 Plugin 'hashivim/vim-terraform'
 call vundle#end()            " required
-filetype plugin indent on    " required
-:colorscheme monokai
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 "
@@ -41,4 +29,27 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
+
+""""Plugin Configs
+filetype plugin indent on    " required
+""Airline/Powerline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='deus'
+let g:airline_powerline_fonts = 1
+let g:Powerline_symbols = 'fancy'
+
+""Python
 let g:python_highlight_all = 1
+
+
+""""Colors/Themes
+colorscheme monokai
+set t_Co=256
+
+"""General VIM settings
+syntax on
+set number
+map <C-t><up> :tabr<cr>
+map <C-t><down> :tabl<cr>
+map <C-t><left> :tabp<cr>
+map <C-t><right> :tabn<cr>
