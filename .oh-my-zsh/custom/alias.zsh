@@ -5,4 +5,5 @@ alias top="htop"
 alias mkenv="mkvirtualenv"
 alias rmenv="rmvirtualenv"
 eval $(thefuck --alias)
-alias kc=kubectl
+alias kc="kubectl"
+alias tf="terraform"
