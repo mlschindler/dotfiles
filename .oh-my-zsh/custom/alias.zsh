@@ -7,3 +7,4 @@ alias rmenv="rmvirtualenv"
 eval $(thefuck --alias)
 alias kc="kubectl"
 alias tf="terraform"
+alias sc=shellcheck

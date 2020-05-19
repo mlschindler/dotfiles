@@ -49,6 +49,12 @@ set t_Co=256
 """General VIM settings
 syntax on
 set number
+set rnu
+set backspace=2
+set cursorline
+set expandtab
+set laststatus=2
+set shiftwidth=2
 map <C-t><up> :tabr<cr>
 map <C-t><down> :tabl<cr>
 map <C-t><left> :tabp<cr>
