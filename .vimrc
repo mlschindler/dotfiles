@@ -16,6 +16,7 @@ Plugin 'christoomey/vim-system-copy'
 Plugin 'vim-python/python-syntax'
 Plugin 'tpope/vim-fugitive'
 Plugin 'hashivim/vim-terraform'
+Plugin 'glench/vim-jinja2-syntax'
 call vundle#end()            " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
@@ -52,7 +53,10 @@ set number
 set rnu
 set backspace=2
 set cursorline
+set cursorcolumn
 set expandtab
+set tabstop=2
+set softtabstop=2
 set laststatus=2
 set shiftwidth=2
 map <C-t><up> :tabr<cr>
