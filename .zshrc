@@ -125,14 +125,18 @@ echo -e "\033]6;1;bg;red;brightness;18\a"
 echo -e "\033]6;1;bg;green;brightness;26\a"
 echo -e "\033]6;1;bg;blue;brightness;33\a"
 
+# General ENV variables
 export VAULT_ADDR=https://vault.prod.2u.com:8200/
 export VAULT_CACERT=$HOME/.certs/vault-ca.pem
 export AWS_CONFIG_FILE=$HOME/.aws/config
 ssh-add ~/.ssh/cybersec-devops-oregon.pem
 export ANSIBLE_NOCOWS=1
+
+# virtualenvwrapper config
 export WORKON_HOME=$HOME/.virtualenvs
 VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
 source /usr/local/bin/virtualenvwrapper.sh
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 alias config='/usr/bin/git --git-dir=/Users/mschindler1/.cfg/ --work-tree=/Users/mschindler1'
