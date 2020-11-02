@@ -101,22 +101,22 @@ plugins=(aws git virtualenv zsh-syntax-highlighting tmux)
 export TERM="xterm-256color"
 source $ZSH/oh-my-zsh.sh
 
-# POWERLEVEL9k PROMPTS
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(virtualenv dir rbenv vcs)
-VIRTUAL_ENV_DISABLE_PROMPT=1
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs history time date)
-
-
-# Add a space in the first prompt
-POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-
-POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="%f"
-# Visual customisation of the second prompt line
-local user_symbol="$"
-if [[ $(print -P "%#") =~ "#" ]]; then
-    user_symbol = "#"
-fi
-POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%{%B%F{black}%K{yellow}%} $user_symbol%{%b%f%k%F{yellow}%} %{%f%}"
+## POWERLEVEL9k PROMPTS
+#POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(virtualenv dir rbenv vcs)
+#VIRTUAL_ENV_DISABLE_PROMPT=1
+#POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs history time date)
+#
+#
+## Add a space in the first prompt
+#POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+#
+#POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="%f"
+## Visual customisation of the second prompt line
+#local user_symbol="$"
+#if [[ $(print -P "%#") =~ "#" ]]; then
+#    user_symbol = "#"
+#fi
+#POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%{%B%F{black}%K{yellow}%} $user_symbol%{%b%f%k%F{yellow}%} %{%f%}"
 
 
 # Colorise the top Tabs of Iterm2 with the same color as background
