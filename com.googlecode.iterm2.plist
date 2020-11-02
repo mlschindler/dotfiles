@@ -761,7 +761,7 @@
 	<key>NSWindow Frame NSNavPanelAutosaveName</key>
 	<string>4380 714 799 448 0 0 1680 1050 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>4240 -390 570 427 4240 -390 1080 1920 </string>
+	<string>4240 -165 570 427 4240 -390 1080 1920 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -2855,7 +2855,7 @@
 	<key>NoSyncInstallationId</key>
 	<string>ED604C6B-5C13-4CB5-A90D-12FE23B777BA</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>3</integer>
+	<integer>4</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -3573,7 +3573,7 @@
 	<key>NoSyncTipOfTheDayEligibilityBeganTime</key>
 	<real>626024735.15153599</real>
 	<key>PrefsCustomFolder</key>
-	<string>/Users/mschindler1</string>
+	<string>~</string>
 	<key>SUEnableAutomaticChecks</key>
 	<true/>
 	<key>SUFeedAlternateAppNameKey</key>
