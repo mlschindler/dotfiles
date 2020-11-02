@@ -1,40 +1,29 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+"Set up Plug and Autoinstall
+if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+      autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'sickill/vim-monokai'
-Plugin 'christoomey/vim-system-copy'
-Plugin 'vim-python/python-syntax'
-Plugin 'tpope/vim-fugitive'
-Plugin 'hashivim/vim-terraform'
-Plugin 'glench/vim-jinja2-syntax'
-call vundle#end()            " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+" Reference plugins...
+call plug#begin()
+Plug 'scrooloose/nerdtree'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'sickill/vim-monokai'
+Plug 'christoomey/vim-system-copy'
+Plug 'vim-python/python-syntax'
+Plug 'tpope/vim-fugitive'
+Plug 'hashivim/vim-terraform'
+Plug 'glench/vim-jinja2-syntax'
+Plug 'stephpy/vim-yaml'
+call plug#end()
 
-
-""""Plugin Configs
+"""Plugin configs
+""Terraform Plug Configs
 filetype plugin indent on    " required
+
 ""Airline/Powerline
-let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='deus'
 let g:airline_powerline_fonts = 1
 let g:Powerline_symbols = 'fancy'
@@ -42,9 +31,9 @@ let g:Powerline_symbols = 'fancy'
 ""Python
 let g:python_highlight_all = 1
 
-
 """"Colors/Themes
 colorscheme monokai
+set background=dark
 set t_Co=256
 
 """General VIM settings
@@ -55,14 +44,9 @@ set backspace=2
 set cursorline
 set cursorcolumn
 set expandtab
-set tabstop=2
-set softtabstop=2
 set laststatus=2
 set shiftwidth=2
 map <C-t><up> :tabr<cr>
 map <C-t><down> :tabl<cr>
 map <C-t><left> :tabp<cr>
 map <C-t><right> :tabn<cr>
-
-""" YAML Settings
-autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
