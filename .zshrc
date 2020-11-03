@@ -68,7 +68,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(aws git virtualenv zsh-syntax-highlighting tmux)
+plugins=(aws git virtualenv zsh-syntax-highlighting tmux gcloud)
 
 
 # User configuration
@@ -98,8 +98,6 @@ plugins=(aws git virtualenv zsh-syntax-highlighting tmux)
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 
-export TERM="xterm-256color"
-source $ZSH/oh-my-zsh.sh
 
 ## POWERLEVEL9k PROMPTS
 #POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(virtualenv dir rbenv vcs)
@@ -118,6 +116,9 @@ source $ZSH/oh-my-zsh.sh
 #fi
 #POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%{%B%F{black}%K{yellow}%} $user_symbol%{%b%f%k%F{yellow}%} %{%f%}"
 
+# General Terminal Settings
+export TERM="xterm-256color"
+source $ZSH/oh-my-zsh.sh
 
 # Colorise the top Tabs of Iterm2 with the same color as background
 # Just change the 18/26/33 wich are the rgb values
@@ -128,7 +129,6 @@ echo -e "\033]6;1;bg;blue;brightness;33\a"
 # General ENV variables
 export VAULT_ADDR=https://vault.prod.2u.com:8200/
 export VAULT_CACERT=$HOME/.certs/vault-ca.pem
-export AWS_CONFIG_FILE=$HOME/.aws/config
 ssh-add ~/.ssh/cybersec-devops-oregon.pem
 export ANSIBLE_NOCOWS=1
 
@@ -138,6 +138,13 @@ export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
 source /usr/local/bin/virtualenvwrapper.sh
 
+# AWS Config
+export AWS_CONFIG_FILE=$HOME/.aws/config
+
+# GCP SDK Exports/Config
+export CLOUDSDK_PYTHON="$(brew --prefix)/opt/python@3.8/libexec/bin/python"
+source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-alias config='/usr/bin/git --git-dir=/Users/mschindler1/.cfg/ --work-tree=/Users/mschindler1'
