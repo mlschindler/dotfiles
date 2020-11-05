@@ -127,9 +127,6 @@ echo -e "\033]6;1;bg;green;brightness;26\a"
 echo -e "\033]6;1;bg;blue;brightness;33\a"
 
 # General ENV variables
-export VAULT_ADDR=https://vault.prod.2u.com:8200/
-export VAULT_CACERT=$HOME/.certs/vault-ca.pem
-ssh-add ~/.ssh/cybersec-devops-oregon.pem
 export ANSIBLE_NOCOWS=1
 
 # virtualenvwrapper config
