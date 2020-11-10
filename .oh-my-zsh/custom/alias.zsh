@@ -17,4 +17,4 @@ alias kc="kubectl"
 alias tf="terraform"
 
 # dotfile tracking alias 
-alias config='/usr/bin/git --git-dir=/Users/mschindler1/.cfg/ --work-tree=/Users/mschindler1'
+alias config='/usr/bin/git --git-dir=/Users/mschindler/.cfg/ --work-tree=/Users/mschindler'
