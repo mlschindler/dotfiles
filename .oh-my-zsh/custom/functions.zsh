@@ -39,3 +39,13 @@ login () {
         sleep 5
         /usr/local/bin/_login
 }
+
+function aws_login
+{
+  local aws_account=${1}
+  if [[ -z "$aws_account"  ]]; then
+    echo "Please provide a role ARN!"
+  else
+    nvsec awsos get-creds --role-arn=${aws_account} --aws-profile default
+  fi
+}
