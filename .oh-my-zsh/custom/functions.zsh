@@ -40,6 +40,8 @@ login () {
         /usr/local/bin/_login
 }
 
+# AWS Login
+
 function aws_login
 {
   local aws_account=${1}
@@ -48,4 +50,17 @@ function aws_login
   else
     nvsec awsos get-creds --role-arn=${aws_account} --aws-profile default
   fi
+}
+
+
+function vault_login
+{
+  local vault_server=${1}
+  if [[ -z "$vault_server" ]]; then
+    echo "Please specify a Vault server address: \n \
+      1. \$VAULT_STG\n \
+      2. \$VAULT_PROD"
+    else
+      vault login -address=${vault_server} -method=ldap username=mschindler
+    fi
 }
