@@ -44,23 +44,71 @@ login () {
 
 function aws_login
 {
-  local aws_account=${1}
-  if [[ -z "$aws_account"  ]]; then
-    echo "Please provide a role ARN!"
-  else
-    nvsec awsos get-creds --role-arn=${aws_account} --aws-profile default
-  fi
+  local nvcs_dev="arn:aws:iam::703088442575:role/AWSOS-AD-Engineer"
+  local nvcs_prod="arn:aws:iam::515825426174:role/AWSOS-AD-Engineer"
+  echo "Choose an AWS account: \n \
+   1. nvcs_dev \n \
+   2. nvcs_prod"
+  read ARN
+  case $ARN in
+    1)
+      nvsec awsos get-creds --role-arn="$nvcs_dev" --aws-profile nvcs-dev
+      echo "\n(+) Credentials written to nvcs-dev profile."
+      ;;
+    2)
+      nvsec awsos get-creds --role-arn="$nvcs_prod" --aws-profile nvcs-prod
+      echo "\n(+) Credentials written to nvcs-prod profile."
+      ;;
+    *)
+      echo "\n(-) Aborted! Please specify an AWS account..."
+      ;;
+  esac
 }
 
+# Vault Login
 
 function vault_login
 {
-  local vault_server=${1}
-  if [[ -z "$vault_server" ]]; then
-    echo "Please specify a Vault server address: \n \
-      1. \$VAULT_STG\n \
-      2. \$VAULT_PROD"
-    else
-      vault login -address=${vault_server} -method=ldap username=mschindler
-    fi
+  local stg="https://stg.vault.nvidia.com"
+  local prod="https://prod.vault.nvidia.com"
+  echo "Choose a Vault server: \n \
+   1. STG \n \
+   2. PROD"
+  read V_SERVER
+  case $V_SERVER in
+    1)
+      vault login -address="$stg" -method=ldap username=mschindler
+      echo "\n(+) Logged into "$stg"."
+      ;;
+    2)
+      vault login -address="$prod" -method=ldap username=mschindler
+      echo "\n(+) Logged into "$prod"."
+      ;;
+    *)
+      echo "\n(-) Aborted! Please specify a Vault server..."
+      ;;
+  esac
 }
+
+#function aws_login
+#{
+#  local aws_account=${1}
+#  if [[ -z "$aws_account"  ]]; then
+#    echo "Please provide a role ARN!"
+#  else
+#    nvsec awsos get-creds --role-arn=${aws_account} --aws-profile default
+#  fi
+#}
+#
+#
+#function vault_login
+#{
+#  local vault_server=${1}
+#  if [[ -z "$vault_server" ]]; then
+#    echo "Please specify a Vault server address: \n \
+#      1. \$VAULT_STG\n \
+#      2. \$VAULT_PROD"
+#    else
+#      vault login -address=${vault_server} -method=ldap username=mschindler
+#    fi
+#}
