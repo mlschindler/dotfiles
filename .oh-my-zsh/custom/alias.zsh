@@ -13,8 +13,5 @@ alias rmenv="rmvirtualenv"
 # kubectl aliases
 alias kc="kubectl"
 
-# terraform aliases
-alias tf="terraform"
-
 # dotfile tracking alias 
 alias config='/usr/bin/git --git-dir=/Users/mschindler/.cfg/ --work-tree=/Users/mschindler'
