@@ -88,10 +88,12 @@ function vault_login
   case $V_SERVER in
     1)
       vault login -address="$stg" -method=ldap username=mschindler
+      export VAULT_ADDR="$stg"
       echo "\n(+) Logged into "$stg"."
       ;;
     2)
       vault login -address="$prod" -method=ldap username=mschindler
+      export VAULT_ADDR="$prod"
       echo "\n(+) Logged into "$prod"."
       ;;
     *)
