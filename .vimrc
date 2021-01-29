@@ -17,11 +17,14 @@ Plug 'tpope/vim-fugitive'
 Plug 'hashivim/vim-terraform'
 Plug 'glench/vim-jinja2-syntax'
 Plug 'stephpy/vim-yaml'
+Plug 'pearofducks/ansible-vim'
 call plug#end()
 
 """Plugin configs
 ""Terraform Plug Configs
 filetype plugin indent on    " required
+let g:terraform_fmt_on_save=1
+let g:terraform_align=1
 
 ""Airline/Powerline
 let g:airline_theme='deus'
