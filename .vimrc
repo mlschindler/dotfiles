@@ -8,9 +8,9 @@ endif
 " Reference plugins...
 call plug#begin()
 Plug 'scrooloose/nerdtree'
+Plug 'altercation/vim-colors-solarized'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'sickill/vim-monokai'
 Plug 'christoomey/vim-system-copy'
 Plug 'vim-python/python-syntax'
 Plug 'tpope/vim-fugitive'
@@ -34,10 +34,17 @@ let g:Powerline_symbols = 'fancy'
 ""Python
 let g:python_highlight_all = 1
 
+"""Ansible
+let g:ansible_attribute_highlight = "ob"
+let g:ansible_name_highlight = 'b'
+let g:ansible_normal_keywords_highlight = 'Constant'
+let g:ansible_with_keywords_highlight = 'Constant'
+
 """"Colors/Themes
-colorscheme monokai
 set background=dark
 set t_Co=256
+let g:solarized_termcolors=256
+colorscheme solarized
 
 """General VIM settings
 syntax on
