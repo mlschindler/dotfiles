@@ -34,17 +34,19 @@ let g:Powerline_symbols = 'fancy'
 ""Python
 let g:python_highlight_all = 1
 
+""""Colors/Themes
+set background=dark
+let g:solarized_termcolors=256
+colorscheme solarized
+
 """Ansible
-let g:ansible_attribute_highlight = "ob"
+let g:ansible_attribute_highlight = "ab"
+let g:ansible_unindent_after_newline = 1
 let g:ansible_name_highlight = 'b'
+let g:ansible_extra_keywords_highlight = 1
 let g:ansible_normal_keywords_highlight = 'Constant'
 let g:ansible_with_keywords_highlight = 'Constant'
 
-""""Colors/Themes
-set background=dark
-set t_Co=256
-let g:solarized_termcolors=256
-colorscheme solarized
 
 """General VIM settings
 syntax on
