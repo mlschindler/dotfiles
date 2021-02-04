@@ -38,6 +38,8 @@ let g:python_highlight_all = 1
 set background=dark
 let g:solarized_termcolors=256
 colorscheme solarized
+let g:solarized_visibility = "high"
+let g:solarized_contrast = "high"
 
 """Ansible
 let g:ansible_attribute_highlight = "ab"
