@@ -45,7 +45,7 @@ login () {
 function aws_login
 {
   local nvcs_dev="arn:aws:iam::703088442575:role/AWSOS-AD-Admin"
-  local nvcs_prod="arn:aws:iam::515825426174:role/AWSOS-AD-Engineer"
+  local nvcs_prod="arn:aws:iam::515825426174:role/AWSOS-AD-Admin"
   echo "Choose an AWS account: \n \
    1. AWS CLI nvcs-dev-admin \n \
    2. AWS CLI nvcs-prod\n \
