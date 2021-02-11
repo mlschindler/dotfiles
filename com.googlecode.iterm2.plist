@@ -706,6 +706,18 @@
 			<true/>
 			<key>ASCII Ligatures</key>
 			<true/>
+			<key>AWDS Pane Directory</key>
+			<string></string>
+			<key>AWDS Pane Option</key>
+			<string>No</string>
+			<key>AWDS Tab Directory</key>
+			<string></string>
+			<key>AWDS Tab Option</key>
+			<string>No</string>
+			<key>AWDS Window Directory</key>
+			<string></string>
+			<key>AWDS Window Option</key>
+			<string>No</string>
 			<key>Ambiguous Double Width</key>
 			<false/>
 			<key>Ansi 0 Color</key>
@@ -972,7 +984,7 @@
 			<key>Columns</key>
 			<integer>80</integer>
 			<key>Command</key>
-			<string>tmux -CC</string>
+			<string></string>
 			<key>Cursor Boost</key>
 			<real>0.0</real>
 			<key>Cursor Color</key>
@@ -2847,9 +2859,9 @@
 				<key>Old Width</key>
 				<real>400</real>
 				<key>Old X Origin</key>
-				<real>207</real>
+				<real>2114</real>
 				<key>Old Y Origin</key>
-				<real>138</real>
+				<real>204</real>
 				<key>Saved Window Type</key>
 				<integer>0</integer>
 				<key>Screen</key>
@@ -2876,6 +2888,18 @@
 											<true/>
 											<key>ASCII Ligatures</key>
 											<true/>
+											<key>AWDS Pane Directory</key>
+											<string></string>
+											<key>AWDS Pane Option</key>
+											<string>No</string>
+											<key>AWDS Tab Directory</key>
+											<string></string>
+											<key>AWDS Tab Option</key>
+											<string>No</string>
+											<key>AWDS Window Directory</key>
+											<string></string>
+											<key>AWDS Window Option</key>
+											<string>No</string>
 											<key>Ambiguous Double Width</key>
 											<false/>
 											<key>Ansi 0 Color</key>
@@ -3142,7 +3166,7 @@
 											<key>Columns</key>
 											<integer>80</integer>
 											<key>Command</key>
-											<string>tmux -CC</string>
+											<string></string>
 											<key>Cursor Boost</key>
 											<real>0.0</real>
 											<key>Cursor Color</key>
@@ -3214,7 +3238,7 @@
 												<real>0.89803922176361084</real>
 											</dict>
 											<key>Guid</key>
-											<string>E7EDCBBE-72E5-46FD-B86B-11E4CF20024F</string>
+											<string>AE1B81BE-A122-4D1B-867E-30F878188E7E</string>
 											<key>Horizontal Spacing</key>
 											<real>1</real>
 											<key>Idle Code</key>
@@ -3719,11 +3743,14 @@
 											<string>/Users/mschindler/tmp/sada_gcp/gcp-org-analyzer</string>
 											<string>/Users/mschindler/tmp/sada_gcp/gcp-org-analyzer</string>
 											<string>/Users/mschindler/tmp/sada_gcp/gcp-org-analyzer</string>
+											<string>/</string>
+											<string>/Users/mschindler</string>
+											<string>/Users/mschindler</string>
 										</array>
 										<key>Environment</key>
 										<dict>
 											<key>PWD</key>
-											<string>/Users/mschindler</string>
+											<string>/Users/mschindler/tmp/sada_gcp/gcp-org-analyzer</string>
 										</dict>
 										<key>Hostname to Shell</key>
 										<dict/>
@@ -3752,10 +3779,8 @@
 										</array>
 										<key>Program</key>
 										<dict>
-											<key>Command</key>
-											<string>login -fp "mschindler"</string>
 											<key>Type</key>
-											<string>Command</string>
+											<string>Shell Launcher</string>
 										</dict>
 										<key>Rows</key>
 										<integer>75</integer>
@@ -3770,7 +3795,7 @@
 										<key>Substitutions</key>
 										<dict/>
 										<key>Working Directory</key>
-										<string>/Users/mschindler/tmp/sada_gcp/gcp-org-analyzer</string>
+										<string>/Users/mschindler</string>
 										<key>Working Directory Poller Disabled</key>
 										<false/>
 									</dict>
