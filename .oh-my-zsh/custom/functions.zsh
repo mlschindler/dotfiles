@@ -42,44 +42,44 @@ login () {
 
 # AWS Login
 
-function aws_login
-{
-  local nvcs_dev="arn:aws:iam::703088442575:role/AWSOS-AD-Admin"
-  local nvcs_prod="arn:aws:iam::515825426174:role/AWSOS-AD-Admin"
-  local aws_mpa="arn:aws:iam::235057249103:role/AWSOS-AD-Admin"
-  echo "Choose an AWS account: \n \
-   1. AWS CLI nvcs-dev-admin \n \
-   2. AWS CLI nvcs-prod\n \
-   3. Terraform nvcs_dev\n \
-   4. Terraform nvcs-prod\n \
-   5. Terraform aws_mpa"
-  read ARN
-  case $ARN in
-    1)
-      nvsec awsos get-creds --role-arn="$nvcs_dev" --aws-profile nvcs-dev
-      echo "\n(+) Credentials written to nvcs-dev profile."
-      ;;
-    2)
-      nvsec awsos get-creds --role-arn="$nvcs_prod" --aws-profile nvcs-prod
-      echo "\n(+) Credentials written to nvcs-prod profile."
-      ;;
-    3)
-      nvsec awsos get-creds --role-arn="$nvcs_dev" --aws-profile default
-      echo "\n(!) Credentials written to default profile for using TF for the NVCS Dev account...."
-      ;;
-    4)
-      nvsec awsos get-creds --role-arn="$nvcs_prod" --aws-profile default
-      echo "\n(!) Credentials written to default profile for using TF for the NVCS Prod account...."
-      ;;
-    5)
-      nvsec awsos get-creds --role-arn="$aws_mpa" --aws-profile default
-      echo "\n(!) Credentials written to default profile for using TF for the AWS MPA account...."
-      ;;
-    *)
-      echo "\n(-) Aborted! Please specify an AWS account..."
-      ;;
-  esac
-}
+#function aws_login
+#{
+#  local nvcs_dev="arn:aws:iam::703088442575:role/AWSOS-AD-Admin"
+#  local nvcs_prod="arn:aws:iam::515825426174:role/AWSOS-AD-Admin"
+#  local aws_mpa="arn:aws:iam::235057249103:role/AWSOS-AD-Admin"
+#  echo "Choose an AWS account: \n \
+#   1. AWS CLI nvcs-dev-admin \n \
+#   2. AWS CLI nvcs-prod\n \
+#   3. Terraform nvcs_dev\n \
+#   4. Terraform nvcs-prod\n \
+#   5. Terraform aws_mpa"
+#  read ARN
+#  case $ARN in
+#    1)
+#      nvsec awsos get-creds --role-arn="$nvcs_dev" --aws-profile nvcs-dev
+#      echo "\n(+) Credentials written to nvcs-dev profile."
+#      ;;
+#    2)
+#      nvsec awsos get-creds --role-arn="$nvcs_prod" --aws-profile nvcs-prod
+#      echo "\n(+) Credentials written to nvcs-prod profile."
+#      ;;
+#    3)
+#      nvsec awsos get-creds --role-arn="$nvcs_dev" --aws-profile default
+#      echo "\n(!) Credentials written to default profile for using TF for the NVCS Dev account...."
+#      ;;
+#    4)
+#      nvsec awsos get-creds --role-arn="$nvcs_prod" --aws-profile default
+#      echo "\n(!) Credentials written to default profile for using TF for the NVCS Prod account...."
+#      ;;
+#    5)
+#      nvsec awsos get-creds --role-arn="$aws_mpa" --aws-profile default
+#      echo "\n(!) Credentials written to default profile for using TF for the AWS MPA account...."
+#      ;;
+#    *)
+#      echo "\n(-) Aborted! Please specify an AWS account..."
+#      ;;
+#  esac
+#}
 
 # Vault Login
 

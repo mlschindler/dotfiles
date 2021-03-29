@@ -15,3 +15,6 @@ alias kc="kubectl"
 
 # dotfile tracking alias 
 alias config='/usr/bin/git --git-dir=/Users/mschindler/.cfg/ --work-tree=/Users/mschindler'
+
+# NVIDIA specific aliases
+alias aws_login='nvsec awsos get-creds --aws-profile default'
