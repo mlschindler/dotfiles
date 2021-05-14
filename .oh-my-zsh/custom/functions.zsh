@@ -15,7 +15,92 @@ function _kcsc_complete {
     COMPREPLY=($list)
     return 0
 }
+complete -F _kcsc_complete kcsc
+# Quickly display / switch kubernetes namespaces
+function kcns
+{
+  local namespace=${1}
+  if [[ -z "$namespace" ]]; then
+    kubectl get ns
+  else
+    local context=$(kubectl config current-context)
+    echo "Setting context ${context} to namespace ${namespace}..."
+    kubectl config set-context ${context} --namespace ${namespace}
+  fi
+}
+function _kcns_complete {
+    local word=${COMP_WORDS[COMP_CWORD]}
+    local list=$(kubectl get ns --no-headers | awk '{print $1}')
+    list=$(compgen -W "$list" -- "$word")
+    COMPREPLY=($list)
+    return 0
+}
+complete -F _kcns_complete kcns
 
+# Finds the WAN IP of a given kubernetes node
+function kube-node-wan
+{
+  local node=${1:?}
+  kubectl describe node/${node} \
+    | awk '/Addresses/ {
+        split($2, ips, ",");
+        for (i in ips) {
+          if ( match(ips[i], /(192\.168|10\.|172\.1[6789]\.|172\.2[0-9]\.|172\.3[01]\.)/) == 0 ) {
+            print ips[i]
+          }
+        }
+      }'
+}
+# Lists all kubernetes worker nodes and their WAN IP
+function kube-nodes
+{
+  local nodes=$(kubectl get nodes --no-headers \
+    | grep -v 'SchedulingDisabled' \
+    | cut -d ' ' -f 1
+  )
+  for node in $nodes; do
+    local node_wan=$(kube-node-wan ${node})
+    echo "$node - $node_wan"
+  done
+}
+# Returns the WAN IP for the node on which a given pod is running
+function kube-pod-wan
+{
+  local pod=${1:?}
+  local node=$(kubectl describe po ${pod} \
+    |awk '/^Node:/ { split($NF, node, "/"); print node[1] }')
+  kube-node-wan $node
+}
+# A quick and dirty way to show the resource availability in a kube cluster
+#TODO: This should be re-written and expanded
+function kube-capacity {
+  local nodes=$(kubectl get no --no-headers | awk '$0 !~ /Disabled/ {print $1}')
+  for node in $nodes; do
+    echo -n "Node ${node} - "
+    kubectl describe no $node \
+      | grep -A4 'Allocated resources' \
+      | tail -n1 \
+      | awk '{print "CPU Requests " $1 " " $2 " Memory Requests: " $5 " " $6}'
+  done
+}
+# Grab a shell / execute a comand on a running pod
+function kube-shell
+{
+  local pod=${1:?}
+  shift
+  # Some lazy argument parsing to see if a container is specified
+  if  [[ "$1" == "-c" ]]; then
+    shift
+    local container=" -c ${1:?}"
+    shift
+  fi
+  local cols=$(tput cols)
+  local lines=$(tput lines)
+  local term='xterm'
+  local cmd=$@
+  cmd=${cmd:-bash}
+  kubectl exec -it $pod $container -- env COLUMNS=$cols LINES=$lines TERM=$term "$cmd"
+}
 # 2U VPN Login
 2u-vpn () {
         local command="${1:-s}"
@@ -39,47 +124,6 @@ login () {
         sleep 5
         /usr/local/bin/_login
 }
-
-# AWS Login
-
-#function aws_login
-#{
-#  local nvcs_dev="arn:aws:iam::703088442575:role/AWSOS-AD-Admin"
-#  local nvcs_prod="arn:aws:iam::515825426174:role/AWSOS-AD-Admin"
-#  local aws_mpa="arn:aws:iam::235057249103:role/AWSOS-AD-Admin"
-#  echo "Choose an AWS account: \n \
-#   1. AWS CLI nvcs-dev-admin \n \
-#   2. AWS CLI nvcs-prod\n \
-#   3. Terraform nvcs_dev\n \
-#   4. Terraform nvcs-prod\n \
-#   5. Terraform aws_mpa"
-#  read ARN
-#  case $ARN in
-#    1)
-#      nvsec awsos get-creds --role-arn="$nvcs_dev" --aws-profile nvcs-dev
-#      echo "\n(+) Credentials written to nvcs-dev profile."
-#      ;;
-#    2)
-#      nvsec awsos get-creds --role-arn="$nvcs_prod" --aws-profile nvcs-prod
-#      echo "\n(+) Credentials written to nvcs-prod profile."
-#      ;;
-#    3)
-#      nvsec awsos get-creds --role-arn="$nvcs_dev" --aws-profile default
-#      echo "\n(!) Credentials written to default profile for using TF for the NVCS Dev account...."
-#      ;;
-#    4)
-#      nvsec awsos get-creds --role-arn="$nvcs_prod" --aws-profile default
-#      echo "\n(!) Credentials written to default profile for using TF for the NVCS Prod account...."
-#      ;;
-#    5)
-#      nvsec awsos get-creds --role-arn="$aws_mpa" --aws-profile default
-#      echo "\n(!) Credentials written to default profile for using TF for the AWS MPA account...."
-#      ;;
-#    *)
-#      echo "\n(-) Aborted! Please specify an AWS account..."
-#      ;;
-#  esac
-#}
 
 # Vault Login
 
@@ -108,25 +152,4 @@ function vault_login
   esac
 }
 
-#function aws_login
-#{
-#  local aws_account=${1}
-#  if [[ -z "$aws_account"  ]]; then
-#    echo "Please provide a role ARN!"
-#  else
-#    nvsec awsos get-creds --role-arn=${aws_account} --aws-profile default
-#  fi
-#}
-#
-#
-#function vault_login
-#{
-#  local vault_server=${1}
-#  if [[ -z "$vault_server" ]]; then
-#    echo "Please specify a Vault server address: \n \
-#      1. \$VAULT_STG\n \
-#      2. \$VAULT_PROD"
-#    else
-#      vault login -address=${vault_server} -method=ldap username=mschindler
-#    fi
-#}
+
