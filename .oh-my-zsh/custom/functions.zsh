@@ -131,6 +131,25 @@ function vault_login
 {
   local stg="https://stg.vault.nvidia.com"
   local prod="https://prod.vault.nvidia.com"
+
+  echo "Choose a Vault Namespace: \n \
+   1. nvcloudsec \n \
+   2. heimdall"
+  read V_NAMESPACE
+  case $V_NAMESPACE in
+    1)
+      export VAULT_NAMESPACE="nvcloudsec"
+      echo "\n(+) Namespace set to "$VAULT_NAMESPACE"."
+      ;;
+    2)
+      export VAULT_NAMESPACE="heimdall"
+      echo "\n(+) Namespace set to "$VAULT_NAMESPACE"."
+      ;;
+    *)
+      echo "\n(-) Aborted! Please specify a Vault Namespace..."
+      ;;
+  esac
+
   echo "Choose a Vault server: \n \
    1. STG \n \
    2. PROD"
