@@ -4,6 +4,7 @@ alias ll="exa -lahF"
 alias llt="exa -lahFT"
 alias top="htop"
 alias sc=shellcheck
+alias cdg="cd ~/Repos/work"
 eval $(thefuck --alias)
 
 # Python virtualenvwrapper aliases
