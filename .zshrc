@@ -135,6 +135,7 @@ echo -e "\033]6;1;bg;blue;brightness;33\a"
 
 # General ENV variables
 export ANSIBLE_NOCOWS=1
+export LC_ALL=en_US.UTF-8
 
 # virtualenvwrapper config
 export WORKON_HOME=$HOME/.virtualenvs
@@ -155,4 +156,3 @@ source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/compl
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/vault vault
-export LC_ALL="en_US.UTF-8"
