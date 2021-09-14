@@ -135,7 +135,7 @@ echo -e "\033]6;1;bg;blue;brightness;33\a"
 
 # General ENV variables
 export ANSIBLE_NOCOWS=1
-export LC_ALL=en_US.UTF-8
+export LC_CTYPE=en_US.UTF-8
 
 # virtualenvwrapper config
 export WORKON_HOME=$HOME/.virtualenvs

@@ -52,6 +52,7 @@ let g:ansible_with_keywords_highlight = 'Constant'
 
 """General VIM settings
 syntax on
+autocmd BufNewFile,BufRead Jenkinsfile set syntax=groovy
 set number
 set rnu
 set backspace=2
