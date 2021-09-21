@@ -2,7 +2,7 @@
 alias cat="bat"
 alias ll="exa -lahF"
 alias llt="exa -lahFT"
-alias top="htop"
+alias top="sudo htop"
 alias sc=shellcheck
 alias cdg="cd ~/Repos/work"
 eval $(thefuck --alias)
