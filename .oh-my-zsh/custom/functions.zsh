@@ -102,15 +102,15 @@ function kube-shell
   kubectl exec -it $pod $container -- env COLUMNS=$cols LINES=$lines TERM=$term "$cmd"
 }
 # 2U VPN Login
-2u-vpn () {
+nv-vpn () {
         local command="${1:-s}"
         local -r _vpn_bin='/opt/cisco/anyconnect/bin/vpn'
-        local -r _vpn_net='2U Corp Network'
+        local -r _vpn_net='US Santa Clara (NGVPN01)'
         case "$command" in
                 ('s') echo -e 'Checking current VPN status...\n'
                         eval "${_vpn_bin} -s status" ;;
                 ('c') echo -e 'Connecting to VPN...\n'
-                        _vpn_autoconnect ;;
+                        eval "${_vpn_bin} -s connect '$_vpn_net'" ;;
                 ('d') echo -e 'Disconnecting from VPN...\n'
                         eval "${_vpn_bin} -s disconnect" ;;
                 (*) echo "Invalid option '${command}' ([(s)tatus]|(c)onnect|(d)isconnect)"
@@ -120,9 +120,8 @@ function kube-shell
 
 # calls login scripts
 login () {
-        2u-vpn c
+        nv-vpn c
         sleep 5
-        /usr/local/bin/_login
 }
 
 # Vault Login
