@@ -146,7 +146,7 @@ function vault_login
       echo "\n(+) Namespace set to "$VAULT_NAMESPACE"."
       ;;
     3)
-      export VULT_NAMESPACE="simple-signing-service"
+      export VAULT_NAMESPACE="simple-signing-service"
       echo "\n(+) Namespace set to "$VAULT_NAMESPACE"."
       ;;
     *)
