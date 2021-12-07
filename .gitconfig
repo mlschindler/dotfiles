@@ -1,6 +1,8 @@
 [user]
 	name = Matthew Schindler
 	email = matt.lowery.schindler@gmail.com
+[includeIf "gitdir:~/Repos/work/"]
+        path = ~/Repos/work/.gitconfig
 [core]
 	pager = diff-so-fancy | less --tabs=4 -RFX
 [color]

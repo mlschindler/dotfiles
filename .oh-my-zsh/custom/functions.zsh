@@ -133,7 +133,8 @@ function vault_login
 
   echo "Choose a Vault Namespace: \n \
    1. nvcloudsec \n \
-   2. heimdall"
+   2. heimdall \n \
+   3. simple-signing-service"
   read V_NAMESPACE
   case $V_NAMESPACE in
     1)
@@ -142,6 +143,10 @@ function vault_login
       ;;
     2)
       export VAULT_NAMESPACE="heimdall"
+      echo "\n(+) Namespace set to "$VAULT_NAMESPACE"."
+      ;;
+    3)
+      export VULT_NAMESPACE="simple-signing-service"
       echo "\n(+) Namespace set to "$VAULT_NAMESPACE"."
       ;;
     *)
