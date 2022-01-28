@@ -5,6 +5,7 @@ alias llt="exa -lahFT"
 alias top="sudo htop"
 alias sc=shellcheck
 alias cdg="cd ~/Repos/work"
+alias watch="watch "
 eval $(thefuck --alias)
 
 # Python virtualenvwrapper aliases
