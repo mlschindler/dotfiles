@@ -8,7 +8,6 @@ endif
 " Reference plugins...
 call plug#begin()
 Plug 'scrooloose/nerdtree'
-Plug 'altercation/vim-colors-solarized'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'christoomey/vim-system-copy'
@@ -16,8 +15,9 @@ Plug 'vim-python/python-syntax'
 Plug 'tpope/vim-fugitive'
 Plug 'hashivim/vim-terraform'
 Plug 'glench/vim-jinja2-syntax'
-Plug 'stephpy/vim-yaml'
 Plug 'pearofducks/ansible-vim'
+Plug 'yggdroot/indentLine'
+Plug 'sainnhe/sonokai'
 call plug#end()
 
 """Plugin configs
@@ -35,11 +35,13 @@ let g:Powerline_symbols = 'fancy'
 let g:python_highlight_all = 1
 
 """"Colors/Themes
-set background=dark
-let g:solarized_termcolors=256
-colorscheme solarized
-let g:solarized_visibility = "high"
-let g:solarized_contrast = "high"
+if has('termguicolors')
+      set termguicolors
+    endif
+
+let g:sonokai_style = 'andromeda'
+let g:sonokai_better_performance = 1
+colorscheme sonokai
 
 """Ansible
 let g:ansible_attribute_highlight = "ab"
@@ -53,12 +55,12 @@ let g:ansible_with_keywords_highlight = 'Constant'
 """General VIM settings
 syntax on
 autocmd BufNewFile,BufRead Jenkinsfile set syntax=groovy
+autocmd FileType yaml,yml setlocal ts=2 sts=2 sw=2 expandtab
 set number
 set rnu
 set backspace=2
 set cursorline
 set cursorcolumn
-set expandtab
 set laststatus=2
 set shiftwidth=2
 map <C-t><up> :tabr<cr>

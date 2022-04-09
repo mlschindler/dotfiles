@@ -134,7 +134,8 @@ function vault_login
   echo "Choose a Vault Namespace: \n \
    1. nvcloudsec \n \
    2. heimdall \n \
-   3. simple-signing-service"
+   3. simple-signing-service \n \
+   4. prodsec-splunk"
   read V_NAMESPACE
   case $V_NAMESPACE in
     1)
@@ -149,6 +150,10 @@ function vault_login
       export VAULT_NAMESPACE="simple-signing-service"
       echo "\n(+) Namespace set to "$VAULT_NAMESPACE"."
       ;;
+    4)
+      export VAULT_NAMESPACE="prodsec-splunk"
+      echo "\n(+) Namespace set to "$VAULT_NAMESPACE"."
+      ;;
     *)
       echo "\n(-) Aborted! Please specify a Vault Namespace..."
       ;;
@@ -160,12 +165,12 @@ function vault_login
   read V_SERVER
   case $V_SERVER in
     1)
-      vault login -address="$stg" -method=ldap username=mschindler
+      vault login -address="$stg" -method=oidc -path=oidc-admins role=namespace-admin
       export VAULT_ADDR="$stg"
       echo "\n(+) Logged into "$stg"."
       ;;
     2)
-      vault login -address="$prod" -method=ldap username=mschindler
+      vault login -address="$prod" -method=oidc -path=oidc-admins role=namespace-admin
       export VAULT_ADDR="$prod"
       echo "\n(+) Logged into "$prod"."
       ;;
