@@ -18,6 +18,7 @@ Plug 'glench/vim-jinja2-syntax'
 Plug 'pearofducks/ansible-vim'
 Plug 'yggdroot/indentLine'
 Plug 'sainnhe/sonokai'
+Plug 'preservim/nerdcommenter'
 call plug#end()
 
 """Plugin configs
