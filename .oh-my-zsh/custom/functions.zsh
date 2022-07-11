@@ -166,7 +166,9 @@ function vault_login
 
   echo "Choose a Vault server: \n \
    1. STG \n \
-   2. PROD"
+   2. PROD \n \
+   3. prodsec-devops STG \n \
+   4. prodsec-devops PROD"
   read V_SERVER
   case $V_SERVER in
     1)
@@ -176,6 +178,16 @@ function vault_login
       ;;
     2)
       vault login -address="$prod" -method=oidc -path=oidc-admins role=namespace-admin
+      export VAULT_ADDR="$prod"
+      echo "\n(+) Logged into "$prod"."
+      ;;
+    3)
+      vault login -address="$stg" -method=oidc role=namespace-poweruser
+      export VAULT_ADDR="$stg"
+      echo "\n(+) Logged into "$stg"."
+      ;;
+    4)
+      vault login -address="$prod" -method=oidc role=namespace-poweruser
       export VAULT_ADDR="$prod"
       echo "\n(+) Logged into "$prod"."
       ;;
