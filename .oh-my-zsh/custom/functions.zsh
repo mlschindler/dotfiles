@@ -135,7 +135,8 @@ function vault_login
    1. nvcloudsec \n \
    2. heimdall \n \
    3. simple-signing-service \n \
-   4. prodsec-splunk"
+   4. prodsec-splunk \n \
+   5. prodsec-devops"
   read V_NAMESPACE
   case $V_NAMESPACE in
     1)
@@ -152,6 +153,10 @@ function vault_login
       ;;
     4)
       export VAULT_NAMESPACE="prodsec-splunk"
+      echo "\n(+) Namespace set to "$VAULT_NAMESPACE"."
+      ;;
+    5)
+      export VAULT_NAMESPACE="prodsec-devops"
       echo "\n(+) Namespace set to "$VAULT_NAMESPACE"."
       ;;
     *)
