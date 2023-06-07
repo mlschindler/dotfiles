@@ -182,12 +182,12 @@ function vault_login
       echo "\n(+) Logged into "$prod"."
       ;;
     3)
-      vault login -address="$stg" -method=oidc role=namespace-poweruser
+      vault login -address="$stg" -method=oidc
       export VAULT_ADDR="$stg"
       echo "\n(+) Logged into "$stg"."
       ;;
     4)
-      vault login -address="$prod" -method=oidc role=namespace-poweruser
+      vault login -address="$prod" -method=oidc
       export VAULT_ADDR="$prod"
       echo "\n(+) Logged into "$prod"."
       ;;

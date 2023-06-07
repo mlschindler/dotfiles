@@ -75,7 +75,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(aws git virtualenv zsh-syntax-highlighting tmux gcloud terraform poetry flux lacework kustomize, kubectl)
+plugins=(aws git zsh-syntax-highlighting tmux gcloud poetry flux lacework kustomize terraform)
 
 
 # User configuration
@@ -160,3 +160,5 @@ complete -o nospace -C /usr/local/bin/vault vault
 complete -o nospace -C /usr/local/bin/boundary boundary
 
 complete -o nospace -C /usr/local/bin/waypoint waypoint
+
+

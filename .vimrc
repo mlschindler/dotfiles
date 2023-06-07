@@ -19,6 +19,7 @@ Plug 'pearofducks/ansible-vim'
 Plug 'yggdroot/indentLine'
 Plug 'sainnhe/sonokai'
 Plug 'preservim/nerdcommenter'
+Plug 'dense-analysis/ale'
 call plug#end()
 
 """Plugin configs
