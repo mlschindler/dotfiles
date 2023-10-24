@@ -20,3 +20,5 @@ alias config='/usr/bin/git --git-dir=/Users/mschindler/.cfg/ --work-tree=/Users/
 
 # NVIDIA specific aliases
 alias aws_login='nvsec configure user && nvsec awsos get-creds --aws-profile default'
+alias vpn_durham='sudo openconnect-sso -s ngvpn04.vpn.nvidia.com -g SAML'
+alias vpn_austin='sudo openconnect ngvpn03.vpn.nvidia.com/SAML-EXT'
