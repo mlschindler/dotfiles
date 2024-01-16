@@ -124,6 +124,7 @@ plugins=(aws git zsh-syntax-highlighting tmux poetry flux lacework kustomize ter
 #POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%{%B%F{black}%K{yellow}%} $user_symbol%{%b%f%k%F{yellow}%} %{%f%}"
 
 # General Terminal Settings
+FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 export TERM="xterm-256color"
 source $ZSH/oh-my-zsh.sh
 
@@ -150,10 +151,5 @@ export AWS_CONFIG_FILE=$HOME/.aws/config
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/local/bin/vault vault
 
-complete -o nospace -C /usr/local/bin/boundary boundary
-
-complete -o nospace -C /usr/local/bin/waypoint waypoint
-
-
+complete -o nospace -C /opt/homebrew/bin/vault vault
