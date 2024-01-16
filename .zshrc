@@ -75,7 +75,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(aws git zsh-syntax-highlighting tmux gcloud poetry flux lacework kustomize terraform)
+plugins=(aws git zsh-syntax-highlighting tmux poetry flux lacework kustomize terraform)
 
 
 # User configuration
@@ -137,12 +137,6 @@ echo -e "\033]6;1;bg;blue;brightness;33\a"
 export ANSIBLE_NOCOWS=1
 export LC_CTYPE=en_US.UTF-8
 
-# virtualenvwrapper config
-export WORKON_HOME=$HOME/.virtualenvs
-export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
-export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
-source /usr/local/bin/virtualenvwrapper.sh
-
 export GOPATH=$HOME/go
 export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:$GOPATH/bin
@@ -151,10 +145,6 @@ export PATH=$PATH:$GOROOT/bin
 # AWS Config
 export AWS_CONFIG_FILE=$HOME/.aws/config
 
-# GCP SDK Exports/Config
-export CLOUDSDK_PYTHON="$(brew --prefix)/opt/python@3.8/libexec/bin/python"
-source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
-source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
