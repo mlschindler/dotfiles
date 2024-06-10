@@ -5,6 +5,10 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -125,6 +129,7 @@ plugins=(aws git zsh-syntax-highlighting tmux poetry flux lacework kustomize ter
 
 # General Terminal Settings
 FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
 export TERM="xterm-256color"
 source $ZSH/oh-my-zsh.sh
 
@@ -137,19 +142,20 @@ echo -e "\033]6;1;bg;blue;brightness;33\a"
 # General ENV variables
 export ANSIBLE_NOCOWS=1
 export LC_CTYPE=en_US.UTF-8
-
-export GOPATH=$HOME/go
-export GOROOT=/usr/local/opt/go/libexec
-export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:$GOROOT/bin
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 # AWS Config
 export AWS_CONFIG_FILE=$HOME/.aws/config
 
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 autoload -U +X bashcompinit && bashcompinit
 
 complete -o nospace -C /opt/homebrew/bin/vault vault
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
