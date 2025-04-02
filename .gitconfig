@@ -1,6 +1,6 @@
 [user]
 	name = Matthew Schindler
-	email = matt.lowery.schindler@gmail.com
+	email = mschindler@nvidia.com
 [includeIf "gitdir:~/Repos/work/"]
         path = ~/Repos/work/.gitconfig
 [core]
@@ -19,3 +19,4 @@
 	old = red bold
 	new = green bold
 	whitespace = red reverse
+[commit]

@@ -79,7 +79,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(aws git zsh-syntax-highlighting tmux poetry flux lacework kustomize terraform)
+plugins=(aws git zsh-syntax-highlighting tmux poetry flux lacework kustomize terraform zsh-prompt-benchmark teleport)
 
 
 # User configuration
@@ -159,3 +159,6 @@ complete -o nospace -C /opt/homebrew/bin/vault vault
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"

@@ -1,7 +1,6 @@
 # General QoL terminal aliases
 alias cat="bat"
-alias ll="exa -lahF"
-alias llt="exa -lahFT"
+alias ll="lsd -lahF"
 alias top="sudo htop"
 alias sc=shellcheck
 alias cdg="cd ~/Repos/work"
@@ -14,7 +13,6 @@ alias rmenv="rmvirtualenv"
 
 # kubectl aliases
 alias kc="kubectl"
-alias kubectl='kubecolor'
 
 # dotfile tracking alias 
 alias config='/usr/bin/git --git-dir=/Users/mschindler/.cfg/ --work-tree=/Users/mschindler'
