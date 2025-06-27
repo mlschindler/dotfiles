@@ -1,3 +1,4 @@
+export ZSH_COMPDUMP="/tmp/.zcompdump-${USER}-$(hostname)-${ZSH_VERSION}"
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -79,7 +80,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(aws git zsh-syntax-highlighting tmux poetry flux lacework kustomize terraform zsh-prompt-benchmark teleport)
+plugins=(aws git zsh-syntax-highlighting tmux poetry flux lacework kustomize terraform zsh-prompt-benchmark teleport tm)
 
 
 # User configuration
@@ -143,6 +144,7 @@ echo -e "\033]6;1;bg;blue;brightness;33\a"
 export ANSIBLE_NOCOWS=1
 export LC_CTYPE=en_US.UTF-8
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 # AWS Config
 export AWS_CONFIG_FILE=$HOME/.aws/config
@@ -162,3 +164,7 @@ export NVM_DIR="$HOME/.nvm"
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+
+# Task Master aliases added on 6/26/2025
+alias tm='task-master'
+alias taskmaster='task-master'
